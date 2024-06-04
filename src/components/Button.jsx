@@ -16,6 +16,7 @@ const Button = (props) => {
           color: white;
           font-size: 16px;
           font-weight: 400;
+          margin: 0px 20px
         `}
       >
         Button
@@ -33,6 +34,7 @@ const Button = (props) => {
           color: white;
           font-size: 16px;
           font-weight: 400;
+          margin: 20px
         `}
       >
         Button
