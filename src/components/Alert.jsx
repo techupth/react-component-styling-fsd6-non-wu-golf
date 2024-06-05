@@ -6,84 +6,47 @@ import triangle from "./svg/alert-triangle.svg";
 import check from "./svg/check-circle.svg";
 
 function Alert(props) {
+  let backgroundColor = "";
+  let imageIcon = "";
   if (props.message === "error") {
-    return (
-      <button
-        css={css`
-          width: 650px;
-          height: 76px;
-          color: #444444;
-          border-radius: 10px;
-          margin-top: 31px;
-          background-color: #f9c8c8;
-          font-family: Kanit;
-          font-size: 20px;
-          font-weight: 700;
-          text-align: left;
-        `}
-      >
-        <img src={frown} alt="" /> This is error alert box
-      </button>
-    );
+    backgroundColor = "#f9c8c8";
+    imageIcon = frown;
   } else if (props.message === "warning") {
-    return (
-      <button
-        css={css`
-          width: 650px;
-          height: 76px;
-          color: #444444;
-          border-radius: 10px;
-          margin-top: 31px;
-          background-color: #f9d9c8;
-          font-family: Kanit;
-          font-size: 20px;
-          font-weight: 700;
-          line-height: 29.9px;
-          text-align: left;
-        `}
-      >
-        <img src={triangle} alt="" /> This is warning alert box
-      </button>
-    );
+    backgroundColor = "#f9d9c8";
+    imageIcon = triangle;
   } else if (props.message === "info") {
-    return (
-      <button
-        css={css`
-          width: 650px;
-          height: 76px;
-          color: #444444;
-          border-radius: 10px;
-          margin-top: 31px;
-          background-color: #f9ebc8;
-          font-family: Kanit;
-          font-size: 20px;
-          font-weight: 700;
-          text-align: left;
-        `}
-      >
-        <img src={circle} alt="" /> This is info alert box
-      </button>
-    );
-  } else if (props.message === "success") {
-    return (
-      <button
-        css={css`
-          width: 650px;
-          height: 76px;
-          color: #444444;
-          border-radius: 10px;
-          margin-top: 31px;
-          background-color: #cef7cd;
-          font-family: Kanit;
-          font-size: 20px;
-          font-weight: 700;
-          text-align: left;
-        `}
-      >
-        <img src={check} alt="" /> This is info alert box
-      </button>
-    );
+    backgroundColor = "#f9ebc8";
+    imageIcon = circle;
+  } else {
+    backgroundColor = "#cef7cd";
+    imageIcon = check;
   }
+
+  return (
+    <button
+      css={css`
+        width: 650px;
+        height: 76px;
+        border-radius: 10px;
+        margin-top: 31px;
+        color: #444444;
+        font-family: Kanit;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: left;
+        background-color: ${backgroundColor};
+      `}
+    >
+      <img
+        src={imageIcon}
+        alt=""
+        css={css`
+          margin-right: 10px;
+        `}
+      />
+      This is {props.message} alert box
+    </button>
+  );
 }
 
 export default Alert;
